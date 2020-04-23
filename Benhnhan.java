@@ -3,7 +3,7 @@ package baiKT1;
 
 import java.util.Scanner;
 
-public class Benhnhan extends Phieu{
+public class Benhnhan{
     public String tenBn;
     String gioiTinh;
     int tuoi;
@@ -11,8 +11,17 @@ public class Benhnhan extends Phieu{
     String tienSuBenh;
     public void nhap() {
         Scanner s = new Scanner(System.in);
-        System.out.println("Nhap ten benh nhan ");
-        tenBn = s.nextLine();
+        try {
+            System.out.print("Nhap ten benh nhan: ");
+            tenBn = s.nextLine();
+            if(tenBn.trim().isEmpty()) {
+                throw new Exception("Ten benh nhan khong duoc de trong ");
+            }
+        } catch (Exception e) {
+            System.out.println(e);            
+            System.out.print("Nhap ten benh nhan: ");
+            tenBn = s.nextLine();
+        }
         System.out.println("Nhap gioi tinh ");
         gioiTinh = s.nextLine();
         System.out.println("Nhap tuoi");
